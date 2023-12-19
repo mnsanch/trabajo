@@ -36,7 +36,19 @@
             // Preparamos la consulta
             $conexion = DataBase::connect();
         
-            $stmt = $conexion->prepare("SELECT * FROM producto WHERE ID_producto=?");
+            $stmt = $conexion->prepare(
+                "SELECT usuario.ID_Usuario,
+                usuario.Nombre_Usuario,
+                usuario.Correo,
+                usuario.Direccion,
+                usuario.Telefono,
+                contraseñas.contraseña,
+                categoria_usuario.Nombre_Categoria_Usuario
+                FROM usuario
+                JOIN contraseñas on usuario.ID_Usuario = contraseñas.ID_Usuario
+                JOIN categoria_usuario on usuario.ID_Categoria_Usuario = categoria_usuario.ID_Categoria_Usuario
+                WHERE usuario.ID_Usuario=?"
+                );
             $stmt->bind_param("i",$id);
         
             // Ejecutamos la consulta
@@ -72,10 +84,65 @@
                     return true;
                 }
                 $correobd=false;
-        }
-        return false;
+            }
+            return false;
 
-    }
+        }
+
+        public static function modificarusuario($nombre, $correo, $direccion, $telefono, $contraseña, $id){
+
+            
+            // Preparamos la consulta
+            $conexion = DataBase::connect();
+        
+            $stmt = $conexion->prepare(
+                "UPDATE
+                    usuario
+                JOIN contraseñas ON usuario.ID_Usuario = contraseñas.ID_Usuario
+                SET
+                    usuario.Nombre_Usuario = ?,
+                    usuario.Correo = ?,
+                    usuario.Direccion = ?,
+                    usuario.Telefono = ?,
+                    contraseñas.Contraseña = ?
+                WHERE
+                    contraseñas.ID_Usuario = ?"
+                );
+            $stmt->bind_param("sssisi",$nombre, $correo, $direccion, $telefono, $contraseña, $id);
+            
+            $stmt->execute();
+
+            // Preparamos la consulta
+            $usuario = UsarioDAO::getUsuarioByID($id);
+            return $usuario;
+
+
+
+            // $correobd=false;
+            // $contraseñabd=false;
+            // foreach ($usuarios as $usuario) {
+            //     if ($usuario->getCorreo()==$correo) {
+            //         $correobd=true;                    
+            //     }
+            //     if ($correobd==true && $usuario->getContraseña()==$contraseña) {
+            //         $contraseñabd=true;
+            //     }
+            //     if ($correobd==true&&$contraseñabd==true) {
+            //         $_SESSION['nombre'] = $usuario->getNombreUsuario();
+            //         $_SESSION['correo'] = $usuario->getCorreo();
+            //         $_SESSION['contraseña'] = $usuario->getContraseña();
+            //         $_SESSION['direccion'] = $usuario->getDireccion();
+            //         $_SESSION['telefono'] = $usuario->getTelefono();
+            //         $_SESSION['idusuario'] = $usuario->getIDUsuario();
+            //         $_SESSION['categoria'] = $usuario->getNombreCategoriaUsuario();
+            //         return true;
+            //     }
+            //     $correobd=false;
+            // }
+            // return false;
+
+        }
+        
     public static function comprobarcontraseña($contraseña, $contraseñaconfirmada){
         if ($contraseña==$contraseñaconfirmada) {
             return true;

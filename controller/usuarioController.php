@@ -151,5 +151,28 @@
             $this->login();
         }
 
+        public function modificarsesion(){
+
+            $usuario = UsarioDAO::modificarusuario($_POST['nombre'], $_POST['correo'], $_POST['direccion'], $_POST['telefono'], $_POST['contraseña'], $_SESSION['idusuario']);
+
+            var_dump($usuario);
+            unset($_SESSION['nombre']);
+            unset($_SESSION['correo']);
+            unset($_SESSION['contraseña']);
+            unset($_SESSION['direccion']);
+            unset($_SESSION['telefono']);
+            unset($_SESSION['idusuario']);
+            unset($_SESSION['categoria']);
+
+            $_SESSION['nombre'] = $usuario->getNombreUsuario();
+            $_SESSION['correo'] = $usuario->getCorreo();
+            $_SESSION['contraseña'] = $usuario->getContraseña();
+            $_SESSION['direccion'] = $usuario->getDireccion();
+            $_SESSION['telefono'] = $usuario->getTelefono();
+            $_SESSION['idusuario'] = $usuario->getIDUsuario();
+            $_SESSION['categoria'] = $usuario->getNombreCategoriaUsuario();
+            $this->login();
+        }
+
     }
 ?>

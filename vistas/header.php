@@ -3,10 +3,6 @@
 
 
 <header class="CircularSTD">
-    <?php
-    $hola = $_SESSION['correo'];
-    var_dump($_COOKIE['.'])
-    ?>
     <section class="container-xl">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">

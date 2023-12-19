@@ -17,10 +17,8 @@
             // borramos sesion pedido
             $idpedido = ProductoPedidoDao::guardarpedido();
             unset($_SESSION['selecciones']);
-            $hola = $_SESSION['nombre'];
             //guardo la coockie
-            setcookie('.',$idpedido,time()+3600);
-            setcookie($_SESSION['idusuario'],$_SESSION['idusuario'],time()+3600);
+            setcookie($_SESSION['idusuario'],$idpedido,time()+3600);
 
 
             productoController::index();        

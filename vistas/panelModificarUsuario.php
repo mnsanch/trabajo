@@ -23,12 +23,12 @@
     <?php
   }else{
     ?>
-    <h1 >Registro de Usuario</h1>
+    <h1 >Modificar Usuario</h1>
     <?php
   }
     ?>
     <p class="logo"></p>
-    <form action="<?=url.'?controller=usuario&action=crearsesrion'?>" method="post">
+    <form action="<?=url.'?controller=usuario&action=modificarsesion'?>" method="post">
       
       <label for="nombre">Nombre:</label>
       <input class="inputlogin" type="text" id="nombre" name="nombre" value="<?=$_SESSION['nombre']?>" required>      
