@@ -35,13 +35,11 @@
             ?>
 
             <div class="col-12 col-md-6 col-lg-4 producto">
-                <a href="productos.html" class="nodecoracion">
-                    <div class="imagencontenedor" style="background-image: url('<?=$pedido->getImagenProducto()?>');">
-                    </div>
-                    <h4 class="negrita productonombre mayuscula"><?=$pedido->getNombreProducto()?></h4>
-                    <p class="productodescripcion mayuscula"><?=$pedido->getDescripcion()?></p>
-                    <p class="productodescripcion mayuscula">Cantidad: <?=$pedido->getCantidad()?></p>
-                </a>
+                <div class="imagencontenedor" style="background-image: url('<?=$pedido->getImagenProducto()?>');">
+                </div>
+                <h4 class="negrita productonombre mayuscula"><?=$pedido->getNombreProducto()?></h4>
+                <p class="productodescripcion mayuscula"><?=$pedido->getDescripcion()?></p>
+                <p class="productodescripcion mayuscula">Cantidad: <?=$pedido->getCantidad()?></p>
             </div>
             <?php
                 }

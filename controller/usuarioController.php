@@ -143,11 +143,6 @@
         }
         public function salirsesion(){
             session_destroy();
-
-                // unset($_SESSION['nombre']);
-                // unset($_SESSION['correo']);
-                // unset($_SESSION['contraseña']);
-                // unset($_SESSION['idusuario']);
             $this->login();
         }
 

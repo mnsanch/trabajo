@@ -17,18 +17,22 @@
         ?>
       <h1>Hola <?php echo $_SESSION['nombre']?></h1>
       <div class="row separacionsecundaria">
-        <form class="col-6 ps-5" action="<?=url.'?controller=usuario&action=modificardatosusuario'?>" method="post">
-          <button class="botonproducto ms-2" type="submit">Modificar Datos</button>
-        </form>
-        <form class="col-6 ps-5" action="<?=url.'?controller=usuario&action=verpedido'?>" method="post">
-          <button class="botonproducto ms-2" type="submit">Ver Pedidos</button>
-        </form>
-        <form class="col-6 ps-5" action="<?=url.'?controller=usuario&action=iniciosesion'?>" method="post">
-          <button class="botonproducto ms-2" type="submit">Registrarse</button>
-        </form>
-        <form class="col-6 ps-5" action="<?=url.'?controller=usuario&action=salirsesion'?>" method="post">
-          <button class="botonproducto ms-2" type="submit">Cerrar Sesión</button>
-        </form>
+        <div class="col-12 mb-3 row justify-content-around mb-3c">
+          <form class="col-4 ps-5" action="<?=url.'?controller=usuario&action=modificardatosusuario'?>" method="post">
+            <button class="botonproducto ms-2" type="submit">Modificar Datos</button>
+          </form>
+          <form class="col-4 ps-5" action="<?=url.'?controller=usuario&action=verpedido'?>" method="post">
+            <button class="botonproducto ms-2" type="submit">Ver Pedidos</button>
+          </form>
+        </div>
+        <div class="col-12 row justify-content-around">
+          <form class="col-4 ps-5" action="<?=url.'?controller=pedido&action=ultimopedido'?>" method="post">
+            <button class="botonproducto ms-2" type="submit">Ver ultimpo pedido</button>
+          </form>
+          <form class="col-4 ps-5" action="<?=url.'?controller=usuario&action=salirsesion'?>" method="post">
+            <button class="botonproducto ms-2" type="submit">Cerrar Sesión</button>
+          </form>
+        </div>  
       </div>
       <?php
       }else{

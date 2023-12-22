@@ -12,24 +12,6 @@
 </head>
 
 <body>
-
-    <?php
-// Verifica si la cookie llamada 'ultimopedido' está establecida
-if (isset($_COOKIE[$_SESSION['idusuario']])) {
-    // Imprime un mensaje que muestra el valor de la última compra almacenado en esa cookie
-    echo "Lo ultimo que compraste fue: ";
-     foreach ( (ProductoPedidoDao::cogerpedido($_COOKIE[$_SESSION['idusuario']])) as $producto) {
-        echo $producto->getCantidad()." ";
-        echo $producto->getNombreProducto()." ";
-    };
-        echo "por un total de ". Calcularprecios::calcularpreciocookie(ProductoPedidoDao::cogerpedido($_COOKIE[$_SESSION['idusuario']]))."€";
-    // Elimina la cookie 'ultimopedido'
-    // setcookie('ultimopedido', '', time() - 3600);
-}
-
-    ?>    
-
-
     <main>
         <section class="container-xl text-center separacionprincipal">
             <img src="Imagenes/banner.png" class="img-fluid imagenbanner" alt="">

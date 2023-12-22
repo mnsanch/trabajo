@@ -4,8 +4,6 @@
     include_once 'Producto.php';
     include_once 'Bebida.php';
     include_once 'Pedido.php';
-    include_once 'ProductoPedido.php';
-
 
     class ProductoDAO {
         public static function getAllProductos() {
