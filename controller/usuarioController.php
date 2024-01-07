@@ -118,8 +118,10 @@ class usuarioController
             // Se comprueba que el usuario haya puesto bien la contraseña
             $validar = UsuarioDAO::comprobarcontraseña($_POST['contraseña'], $_POST['confirmar_contrasena']);
             if ($validar == true) {
+                // Se encripta la contraseña
+                $contraseñaencriptada = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
                 // Si esta bien puesta se crea el usuario
-                UsuarioDAO::crearusuario($_POST['nombre'], $_POST['correo'], $_POST['direccion'], $_POST['telefono'], $_POST['contraseña']);
+                UsuarioDAO::crearusuario($_POST['nombre'], $_POST['correo'], $_POST['direccion'], $_POST['telefono'], $contraseñaencriptada);
 
                 // Una vez el usuario se ha creado se guardan sus datos en variables de sesiony se redirige al panel de login
                 $usuarios = UsuarioDAO::validarusuario($_POST['correo'], $_POST['contraseña']);
@@ -172,8 +174,12 @@ class usuarioController
 
             // Si las contraseñas son las mismas modifica el usuario
             if ($validar == true) {
+
+                // Se encripta la contraseña
+                $contraseñaencriptada = password_hash($_POST['contraseña'], PASSWORD_DEFAULT);
+
                 // Modificamos el usuario en la base de datos con los datos obtenidos
-                $usuario = UsuarioDAO::modificarusuario($_POST['nombre'], $_POST['correo'], $_POST['direccion'], $_POST['telefono'], $_POST['contraseña'], $_SESSION['idusuario']);
+                $usuario = UsuarioDAO::modificarusuario($_POST['nombre'], $_POST['correo'], $_POST['direccion'], $_POST['telefono'], $contraseñaencriptada, $_SESSION['idusuario']);
 
                 // Eliminamos todas las variables de sesion del usuario
                 unset($_SESSION['nombre']);

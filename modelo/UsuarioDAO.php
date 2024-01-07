@@ -89,7 +89,7 @@ class UsuarioDAO
                 $correobd = true;
             }
             // Si tenemos la variable de corro en verdadero y la contrseña que nos da el usuario es igual a algunoa de nuestras contraseñas la variable de contraseñadb se vuelve verdadero
-            if ($correobd == true && $usuario->getContraseña() == $contraseña) {
+            if ($correobd == true && password_verify($contraseña, $usuario->getContraseña())) {
                 $contraseñabd = true;
             }
             // Si las dos variables son ciertas se guardan en variables de sesion todos los datos del usuario que necesitemos y cierra la funcion

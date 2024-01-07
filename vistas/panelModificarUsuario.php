@@ -49,7 +49,7 @@
       <input class="inputlogin" type="number" id="telefono" name="telefono" value="<?=$_SESSION['telefono']?>" required>
 
       <label class="separacionsecundaria" for="password">Contraseña:</label>
-      <input class="inputlogin" type="password" id="contraseña" name="contraseña" value="<?=$_SESSION['contraseña']?>" required>
+      <input class="inputlogin" type="password" id="contraseña" name="contraseña"  required>
       
       <label class="separacionsecundaria" for="confirmar_contrasena">Confirmar Contraseña:</label>
       <input class="inputlogin" type="password" id="confirmar_contrasena" name="confirmar_contrasena" required>
