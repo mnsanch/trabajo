@@ -1,0 +1,189 @@
+-- Creamos la base de datos:
+
+CREATE DATABASE restaurante;
+
+-- Creamos las tablas:
+
+CREATE TABLE CONTRASEÑAS
+(
+  ID_Usuario INT NOT NULL,
+  Contraseña VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE CATEGORIA_USUARIO
+(
+  ID_Categoria_Usuario INT AUTO_INCREMENT NOT NULL,
+  Nombre_Categoria_Usuario VARCHAR(25) NOT NULL,
+  PRIMARY KEY (ID_Categoria_Usuario)
+);
+
+CREATE TABLE USUARIO
+(
+  ID_Usuario INT NOT NULL AUTO_INCREMENT,
+  ID_Categoria_Usuario INT NOT NULL,
+  Nombre_Usuario VARCHAR(25) NOT NULL,
+  Correo VARCHAR(255) NOT NULL,
+  Direccion VARCHAR(100) NOT NULL,
+  Telefono INT(9) NOT NULL,
+  PRIMARY KEY (ID_Usuario)
+);
+
+CREATE TABLE PEDIDO
+(
+  ID_Pedido INT NOT NULL AUTO_INCREMENT,
+  ID_Usuario INT NOT NULL,
+  Precio_Pedido FLOAT NOT NULL,
+  Fecha_Pedido DATE NOT NULL,
+  PRIMARY KEY (ID_Pedido)
+);
+
+CREATE TABLE PRODUCTO
+(
+  ID_Producto INT NOT NULL AUTO_INCREMENT,
+  ID_Categoria_Producto INT NOT NULL,
+  Nombre_Producto VARCHAR(255) NOT NULL,
+  Precio_Producto FLOAT NOT NULL,
+  Imagen_Producto VARCHAR(255) NOT NULL,
+  Descripcion TEXT NOT NULL,
+  Alcohol BOOL,
+  PRIMARY KEY (ID_Producto)
+);
+
+CREATE TABLE PEDIDO_PRODUCTO
+(
+  ID_Pedido INT NOT NULL,
+  ID_Producto INT NOT NULL,
+  Cantidad INT NOT NULL,
+  FOREIGN KEY (ID_Pedido) REFERENCES PEDIDO(ID_Pedido),
+  FOREIGN KEY (ID_Producto) REFERENCES PRODUCTO(ID_Producto)
+);
+
+CREATE TABLE CATEGORIA_PRODUCTO
+(
+  ID_Categoria_Producto INT NOT NULL AUTO_INCREMENT,
+  Nombre_Categoria_Producto VARCHAR(255) NOT NULL,
+  PRIMARY KEY (ID_Categoria_Producto)
+);
+
+CREATE TABLE INGREDIENTES
+(
+  ID_Ingrediente INT NOT NULL AUTO_INCREMENT,
+  Nombre_Ingrediente VARCHAR(255) NOT NULL,
+  Imagen_Ingrediente VARCHAR(255) NOT NULL,
+  Descripcion TEXT NOT NULL,
+  Precio_Producto FLOAT NOT NULL,
+  PRIMARY KEY (ID_Ingrediente)
+);
+
+CREATE TABLE PRODUCTO_INGREDIENTES
+(
+  ID_Producto INT NOT NULL,
+  ID_Ingrediente INT NOT NULL,
+  Cantidad_Ingrediente INT NOT NULL,
+  FOREIGN KEY (ID_Ingrediente) REFERENCES INGREDIENTES(ID_Ingrediente),
+  FOREIGN KEY (ID_Producto) REFERENCES PRODUCTO(ID_Producto)
+);
+
+-- Creamos las claves foráneas:
+
+ALTER TABLE `contraseñas` ADD CONSTRAINT `ID_Usuario_Contraseña_ID_Usuario_Usuario` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario`(`ID_Usuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `pedido` ADD CONSTRAINT `ID_Usuario_Pedido_ID_Usuario_Usuario` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuario`(`ID_Usuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `Pedido_Producto` ADD CONSTRAINT `ID_Pedido_Pedido_Producto_ID_Pedido_Pedido` FOREIGN KEY (`ID_Pedido`) REFERENCES `pedido`(`ID_Pedido`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `Pedido_Producto` ADD CONSTRAINT `ID_Producto_Pedido_Producto_ID_Producto_Producto` FOREIGN KEY (`ID_Producto`) REFERENCES `producto`(`ID_Producto`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `producto` ADD CONSTRAINT `ID_Categoria_Producto_Producto_ID_Categoria_Producto_Categoria` FOREIGN KEY (`ID_Categoria_Producto`) REFERENCES `categoria_producto`(`ID_Categoria_Producto`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `usuario` ADD CONSTRAINT `ID_Categoria_Usuario_Usuario_ID_Categoria_Usuario_CUsuario` FOREIGN KEY (`ID_Categoria_Usuario`) REFERENCES `categoria_usuario`(`ID_Categoria_Usuario`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+-- Creamos las categorias de los usuarios:
+
+INSERT INTO `categoria_usuario`(`Nombre_Categoria_Usuario`) VALUES ('Administrador');
+
+INSERT INTO `categoria_usuario`(`Nombre_Categoria_Usuario`) VALUES ('Cliente');
+
+-- Creamos a los usuarios:
+
+INSERT INTO `usuario`(`ID_Categoria_Usuario`, `Nombre_Usuario`, `Correo`, `Direccion`, `telefono`) VALUES ('2','Eustaquio De la Cruz','eustaquitodelacruz@gmail.com','calle Ruiz y Picasso nº 43','638563098');
+
+INSERT INTO `usuario`(`ID_Categoria_Usuario`, `Nombre_Usuario`, `Correo`, `Direccion`, `telefono`) VALUES ('2','El Chapo Guzman de la Fuente','tuchapitodelaesquina@gmail.com','calle Medellín sin número 99','635199263');
+
+INSERT INTO `usuario`(`ID_Categoria_Usuario`, `Nombre_Usuario`, `Correo`, `Direccion`, `telefono`) VALUES ('1','Adolfito del Sol','elcaudillo@gmail.com','Residencia de verano Pazo de Meiras ','688443721');
+
+-- Creamos las categorias de los productos:
+
+INSERT INTO `categoria_producto`(`ID_Categoria_Producto`,`Nombre_Categoria_Producto`) VALUES ('10','Bocadillo frio');
+
+INSERT INTO `categoria_producto`(`ID_Categoria_Producto`,`Nombre_Categoria_Producto`) VALUES ('11','Bocadillo caliente');
+
+INSERT INTO `categoria_producto`(`ID_Categoria_Producto`,`Nombre_Categoria_Producto`) VALUES ('12','Bocadillo vegano');
+
+INSERT INTO `categoria_producto`(`ID_Categoria_Producto`,`Nombre_Categoria_Producto`) VALUES ('13','Bocadillo gourmet');
+
+INSERT INTO `categoria_producto`(`ID_Categoria_Producto`,`Nombre_Categoria_Producto`) VALUES ('20','Hamburgesa mixta');
+
+INSERT INTO `categoria_producto`(`ID_Categoria_Producto`,`Nombre_Categoria_Producto`) VALUES ('21','Hamburgesa pollo');
+
+INSERT INTO `categoria_producto`(`ID_Categoria_Producto`,`Nombre_Categoria_Producto`) VALUES ('22','Hamburgesa vegetal');
+
+INSERT INTO `categoria_producto`(`ID_Categoria_Producto`,`Nombre_Categoria_Producto`) VALUES ('30','Bebida con gas');
+
+INSERT INTO `categoria_producto`(`ID_Categoria_Producto`,`Nombre_Categoria_Producto`) VALUES ('31','Bebida sin gas');
+
+INSERT INTO `categoria_producto`(`ID_Categoria_Producto`,`Nombre_Categoria_Producto`) VALUES ('32','Bebida alcoholica');
+
+-- Creamos las credenciales:
+
+INSERT INTO `contraseñas`(`ID_Usuario`, `Contraseña`) VALUES ('1','casaverde123');
+
+INSERT INTO `contraseñas`(`ID_Usuario`, `Contraseña`) VALUES ('2','plataoplomo');
+
+INSERT INTO `contraseñas`(`ID_Usuario`, `Contraseña`) VALUES ('3','20_11_1975');
+
+-- Creamos los productos:
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('10','Vegetal de Atún','6','Imagenes/Bocadillos/vegetalatun.jpg','Bocadillo de atún, lechuga, rodajas de tomate y queso.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('10','Jamón serrano','6','Imagenes/Bocadillos/jamon.jpg','Bocadillo de Jamón serrano.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('10','Queso de vaca','6','Imagenes/Bocadillos/queso.jpg','Bocadillo de queso de vaca.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('11','Vegetal de pollo','6','Imagenes/Bocadillos/vegetealpollo.jpg','Bocadillo de pollo, lechuga, rodajas de tomate y queso.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('11','Lomo queso','6','Imagenes/Bocadillos/lomoqueso.jpg','Bocadillo de lomo y queso.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('11','calamares','6','Imagenes/Bocadillos/calamares.jpg','Bocadillo de calamares.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('12','Falafel','6','Imagenes/Bocadillos/falafel.jpg','Bocadillo de bolas de falafel, lechuga, tomate, cebolla y salsa de tahini.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('12','Chamiñon y aguacate','6','Imagenes/Bocadillos/aguacate.jpg','Bocadillo de aguacate, champiñones, tomate, cebolla morada y hummus.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('12','Tofu ahumado','6','Imagenes/Bocadillos/tofu.jpg','Bocadillo tofu ahumado, hummus, tomate, lechuga, salsa de soja y pimientos al padrón.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('13','Albóndigas','6','Imagenes/Bocadillos/albondigas.jpg','Bocadillo de albóndiga, queso rallado, perejil y salsa de tomate.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('13','Solomillo de cerdo','6','Imagenes/Bocadillos/solomillo.jpg','Bocadillo de solomillo de cerdo, tomates asados y calabacin a la plancha.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('13','Pastrami','6','Imagenes/Bocadillos/pastramI.jpg','Bocadillo pastrami, rucula, pepino y mayonesa.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('20','Hamburguesa con huevo','6','Imagenes/Hamburguesas/mixtahuevo.jpg','Hamburguesa mixta, lechuga, tomate y huevo.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('21','Hamburguesa completa de pollo','6','Imagenes/Hamburguesas/pollocompleta.jpg','Hamburguesa de pollo, lechuga, tomate, queso y bacon.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`) VALUES ('22','Hamburguesa de lentejas','6','Imagenes/Hamburguesas/vegetallentejas.jpg','Hamburguesa de lentejas, lechuga y tomate.');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`, `Alcohol`) VALUES ('30','Pepsi','1','Imagenes/Bebidas/pepsi.jpg','Bebida gaseosa con sabor cítrico.','0');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`, `Alcohol`) VALUES ('30','Fanta Naranja','1','Imagenes/Bebidas/fantanaranja.jpg','Bebida refrescante de zumo de frutas con sabor naranja.','0');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`, `Alcohol`) VALUES ('31','Aquarius','1','Imagenes/Bebidas/aquarius.jpg','Bebida refrescante aromatizada sabor limón.','0');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`, `Alcohol`) VALUES ('31','Nestea','1','Imagenes/Bebidas/nestea.jpg','Es una bebida refrescante de té, lista para tomar fría que combina con toda la naturalidad, el sabor del té con el del limón.','0');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`, `Alcohol`) VALUES ('32','Estrella galicia','1','Imagenes/Bebidas/estrella.jpg','Cerveza de color dorado brillante que parte de una selección de maltas y lúpulo especialmente amargos.','1');
+
+INSERT INTO `producto`(`ID_Categoria_Producto`, `Nombre_Producto`, `Precio_Producto`, `Imagen_Producto`, `Descripcion`, `Alcohol`) VALUES ('32','Cruzcampo','1','Imagenes/Bebidas/cruzcampo.jpg','La personalidad propia y el carácter único y refrescante de esta Cruzcampo Especial se encuentra en las raíces de una tierra de acentos.','1');
+
+
