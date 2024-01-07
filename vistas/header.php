@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 
-
+<head>
+    <link rel="icon" href="https://www.google.com/s2/favicons?domain=cosmocaixa.org&sz=16" type="image/x-icon">
+</head>
 <header class="CircularSTD">
     <section class="container-xl">
         <nav class="navbar navbar-expand-lg">
