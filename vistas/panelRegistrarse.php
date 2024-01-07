@@ -11,22 +11,22 @@
 </head>
 <body>
 
-<div class="contenedorlogin separacionprincipal col-10 col-sm-5">
+<div class="CircularSTD contenedorlogin separacionprincipal col-10 col-sm-5">
 <?php
   // Si el correo puesto existe en la base de datos saltara el error
   if (isset($correo) && $correo==false){
   ?>
-    <h1>Correo no valido</h1>
+    <h2>Correo no valido</h2>
     <?php
   // Si las contraseñas no coinciden saltar el error
   }elseif (isset($crear) && $crear==false){
   ?>
-    <h1>Contraseñas no coinciden</h1>
+    <h2>Contraseñas no coinciden</h2>
     <?php
   // Mensaje por defecto
   }else{
     ?>
-    <h1 >Registro de Usuario</h1>
+    <h2 >Registro de Usuario</h2>
     <?php
   }
     ?>

@@ -11,22 +11,22 @@
 </head>
 <body>
 
-<div class="contenedorlogin separacionprincipal col-10 col-sm-5">
+<div class="CircularSTD contenedorlogin separacionprincipal col-10 col-sm-5">
 <?php
   // Si el corro que se ha puesto no esta en la base de datos saldra esto
   if (isset($correo) && $correo==false){
   ?>
-    <h1>Correo no valido</h1>
+    <h2>Correo no valido</h2>
     <?php
   // Si la contraseña es incorrecta saldra esto otro
   }elseif (isset($modificar) && $modificar==false){
   ?>
-    <h1>Contraseñas no coinciden</h1>
+    <h2>Contraseñas no coinciden</h2>
     <?php
   // Este es el que sale por defecto cada vez que entras
   }else{
     ?>
-    <h1 >Modificar Usuario</h1>
+    <h2 >Modificar Usuario</h2>
     <?php
   }
     ?>

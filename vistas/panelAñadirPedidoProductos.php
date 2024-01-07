@@ -12,8 +12,8 @@
 <body>
     
 
-<div class="contenedorlogin separacionprincipal col-10 col-sm-5">
-    <h1>Añadir Producto</h1>
+<div class="CircularSTD contenedorlogin separacionprincipal col-10 col-sm-5">
+    <h2>Añadir Producto</h2>
     <form action="<?=url.'?controller=pedido&action=añadirproductopedido'?>" method="post">
       
         <!-- Desplegable con las categorias que puede ser el producto -->

@@ -12,22 +12,22 @@
 <body>
     
 
-<div class="contenedorlogin separacionprincipal col-10 col-sm-5">
+<div class="CircularSTD contenedorlogin separacionprincipal col-10 col-sm-5">
     <?php
     // Si al añadir el producto has intentado añadir una babida sin definirle el alcohol salta esto
     if(isset($errorbebida)){
         ?>
-        <h1>No puedes añadir una bebida sin definir alcohol</h1>
+        <h2>No puedes añadir una bebida sin definir alcohol</h2>
         <?php
     // Si al añadir el producto has intentado añadir una comida con alcohol salta esto
     }elseif (isset($errorcomida)) {
         ?>
-        <h1>No puedes añadir una comida definiendo alcohol</h1>
+        <h2>No puedes añadir una comida definiendo alcohol</h2>
         <?php
     // Este es el que sale por defecto cuando entras
     }else{
         ?>
-        <h1>Añadir Producto</h1>
+        <h2>Añadir Producto</h2>
         <?php
     }
     ?>

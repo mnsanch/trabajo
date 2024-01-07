@@ -12,8 +12,8 @@
 <body>
     
 
-<div class="contenedorlogin separacionprincipal col-10 col-sm-5">
-    <h1>Crear Pedido</h1>
+<div class="CircularSTD contenedorlogin separacionprincipal col-10 col-sm-5">
+    <h2>Crear Pedido</h2>
     <form action="<?=url.'?controller=pedido&action=crearpedido'?>" method="post">
 
         <label for="producto">Usuario:</label>

@@ -12,9 +12,9 @@
 <body>
     
 
-<div class="contenedorlogin separacionprincipal col-10 col-sm-5">
+<div class="CircularSTD contenedorlogin separacionprincipal col-10 col-sm-5">
 
-    <h1>Modificar Producto</h1>
+    <h2>Modificar Producto</h2>
     <form action="<?=url.'?controller=producto&action=modificar'?>" method="post">
       
         <!-- Desplegable con las categorias que puede ser el producto donde por defecto se escoje la que tiene el producto-->

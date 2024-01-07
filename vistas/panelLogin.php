@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="css/estilos.css" rel="stylesheet">
 </head>
-<body class="">
+<body class="CircularSTD">
 
   <div class="contenedorlogin separacionprincipal col-10 col-sm-5">
     <?php
