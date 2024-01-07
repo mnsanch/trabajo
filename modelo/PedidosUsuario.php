@@ -1,14 +1,19 @@
 <?php
-    class PedidosUsuario {
+class PedidosUsuario
+{
         protected $ID_Pedido;
         protected $Precio_Pedido;
         protected $Cantidad;
         protected $Nombre_Producto;
         protected $Imagen_Producto;
         protected $Descripcion;
+        protected $Nombre_Usuario;
 
-        public function __construct (){
+        public function __construct()
+        {
         }
+
+        
 
         /**
          * Get the value of ID_Pedido
@@ -117,5 +122,23 @@
 
                 return $this;
         }
-    }
+
+        /**
+         * Get the value of Nombre_Usuario
+         */
+        public function getNombreUsuario()
+        {
+                return $this->Nombre_Usuario;
+        }
+
+        /**
+         * Set the value of Nombre_Usuario
+         */
+        public function setNombreUsuario($Nombre_Usuario): self
+        {
+                $this->Nombre_Usuario = $Nombre_Usuario;
+
+                return $this;
+        }
+}
 ?>

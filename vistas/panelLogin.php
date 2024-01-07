@@ -11,57 +11,84 @@
 </head>
 <body class="">
 
-  <div class="contenedorlogin separacionprincipal">
+  <div class="contenedorlogin separacionprincipal col-10 col-sm-5">
     <?php
+      // Se mira si hay una sesion iniciada mediante la variable de sasion
       if (isset($_SESSION['correo'])) {
         ?>
+      <!-- Si la sesion existe te muestra esta sección -->
       <h1>Hola <?php echo $_SESSION['nombre']?></h1>
-      <div class="row separacionsecundaria">
-        <div class="col-12 mb-3 row justify-content-around mb-3c">
-          <form class="col-4 ps-5" action="<?=url.'?controller=usuario&action=modificardatosusuario'?>" method="post">
+      <section class="row separacionsecundaria">
+        <div class="col-12 mb-3 row justify-content-around">
+          <!-- Boton para modificar los datos del usuario -->
+          <form class="col-6 col-sm-4 ps-5" action="<?=url.'?controller=usuario&action=modificardatosusuario'?>" method="post">
             <button class="botonproducto ms-2" type="submit">Modificar Datos</button>
           </form>
-          <form class="col-4 ps-5" action="<?=url.'?controller=usuario&action=verpedido'?>" method="post">
+          <!-- boton para ver los pedidos del usuario -->
+          <form class="col-6 col-sm-4 ps-5" action="<?=url.'?controller=usuario&action=verpedido'?>" method="post">
             <button class="botonproducto ms-2" type="submit">Ver Pedidos</button>
           </form>
         </div>
-        <div class="col-12 row justify-content-around">
-          <form class="col-4 ps-5" action="<?=url.'?controller=pedido&action=ultimopedido'?>" method="post">
+        <div class="col-12 mb-3 row justify-content-around">
+          <!-- Boton para ver el ultimo pedido hecho mediante la cookie -->
+          <form class="col-6 col-sm-4 ps-5" action="<?=url.'?controller=pedido&action=ultimopedido'?>" method="post">
             <button class="botonproducto ms-2" type="submit">Ver ultimpo pedido</button>
           </form>
-          <form class="col-4 ps-5" action="<?=url.'?controller=usuario&action=salirsesion'?>" method="post">
+          <!-- Boton para cerrar la sesión -->
+          <form class="col-6 col-sm-4 ps-5" action="<?=url.'?controller=usuario&action=salirsesion'?>" method="post">
             <button class="botonproducto ms-2" type="submit">Cerrar Sesión</button>
           </form>
-        </div>  
-      </div>
+        </div> 
+        <?php
+        // Estos botones unicamente se muestran si el usuario es un administrador
+        if ($_SESSION['categoria']=="Administrador") {
+          ?>
+          <div class="col-12 mb-3 row justify-content-around">
+            <!-- Boton para modificar productos -->
+            <form class="col-6 col-sm-4 ps-5" action="<?=url.'?controller=producto&action=modificardatoproducto'?>" method="post">
+              <button class="botonproducto ms-2" type="submit">Modificar Productos</button>
+            </form>
+            <!-- Boton para modificar pedidos -->
+            <form class="col-6 col-sm-4 ps-5" action="<?=url.'?controller=pedido&action=modificarpedidos'?>" method="post">
+              <button class="botonproducto ms-2" type="submit">Modificar Pedidos</button>
+            </form>
+          </div> 
+          <?php
+        }
+        ?>
+      </section>
       <?php
+      // Si la sesión no está iniciada mostrará esto otro
       }else{
+        // Si al iniciar sesion hay alhun error te mostrará este mensaje
         if (isset($error) && $error==true){
           ?>
           <h1>Error</h1>
           <?php
+        // Este es el mensaje por defecto 
         }else{
-        ?>
-    <h1 >Iniciar Sesión</h1>
-    <?php
+          ?>
+          <h1 >Iniciar Sesión</h1>
+          <?php
         }
-    ?>
-    <p class="logo"></p>
-    <form class="" action="<?=url.'?controller=usuario&action=iniciosesion'?>" method="post">
-      <label for="email">Correo electronico:</label>
-      <input class="inputlogin" type="email" id="correo" name="correo" required>
+        ?>
+        <p class="logo"></p>
+        <!-- Formulario de inicio de sesión -->
+        <form class="" action="<?=url.'?controller=usuario&action=iniciosesion'?>" method="post">
+          <label for="email">Correo electronico:</label>
+          <input class="inputlogin" type="email" id="correo" name="correo" required>
 
-      <label class="separacionsecundaria" for="password">Contraseña:</label>
-      <input class="inputlogin" type="password" id="contraseña" name="contraseña" required>
-      <div class="row justify-content-center separacionsecundaria">
-        <button class="botonproducto  me-2" name="iniciar" type="submit">Iniciar Sesión</button>
-        <button class="botonproducto ms-2" name="registrarse" type="submit">Registrarse</button>
-      </div>
-    </form>
-
-  <?php
+          <label class="separacionsecundaria" for="password">Contraseña:</label>
+          <input class="inputlogin" type="password" id="contraseña" name="contraseña" required>
+          <!-- Botones de inicar sesión y registrarse -->
+          <div class="row justify-content-center separacionsecundaria">
+            <button class="botonproducto  me-2" name="iniciar" type="submit">Iniciar Sesión</button>
+            <button class="botonproducto ms-2" name="registrarse" type="submit">Registrarse</button>
+          </div>
+        </form>
+        <?php
       }
-    ?>
+        ?>
   </div>
 
 </body>

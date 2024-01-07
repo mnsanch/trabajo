@@ -11,16 +11,19 @@
 </head>
 <body>
 
-<div class="contenedorlogin separacionprincipal">
+<div class="contenedorlogin separacionprincipal col-10 col-sm-5">
 <?php
+  // Si el correo puesto existe en la base de datos saltara el error
   if (isset($correo) && $correo==false){
   ?>
     <h1>Correo no valido</h1>
     <?php
+  // Si las contraseñas no coinciden saltar el error
   }elseif (isset($crear) && $crear==false){
   ?>
     <h1>Contraseñas no coinciden</h1>
     <?php
+  // Mensaje por defecto
   }else{
     ?>
     <h1 >Registro de Usuario</h1>
@@ -28,8 +31,9 @@
   }
     ?>
     <p class="logo"></p>
-    <form action="<?=url.'?controller=usuario&action=crearsesrion'?>" method="post">
+    <form action="<?=url.'?controller=usuario&action=crearsesion'?>" method="post">
       
+      <!-- Campos de formulario para añadir al usuario -->
       <label for="nombre">Nombre:</label>
       <input class="inputlogin" type="text" id="nombre" name="nombre" required>      
 
@@ -47,6 +51,7 @@
       
       <label class="separacionsecundaria" for="confirmar_contrasena">Confirmar Contraseña:</label>
       <input class="inputlogin" type="password" id="confirmar_contrasena" name="confirmar_contrasena" required>
+      <!-- Botones de vovler atras y registrarse -->
       <div class="row justify-content-center separacionsecundaria">
         <a class="botonproducto" href="<?=url.'?controller=usuario&action=login'?>">Volver</a>
         <button class="botonproducto ms-5" type="submit" name="registrar">Registrar</button>

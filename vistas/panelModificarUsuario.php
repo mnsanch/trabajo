@@ -11,16 +11,19 @@
 </head>
 <body>
 
-<div class="contenedorlogin separacionprincipal">
+<div class="contenedorlogin separacionprincipal col-10 col-sm-5">
 <?php
+  // Si el corro que se ha puesto no esta en la base de datos saldra esto
   if (isset($correo) && $correo==false){
   ?>
     <h1>Correo no valido</h1>
     <?php
-  }elseif (isset($crear) && $crear==false){
+  // Si la contraseña es incorrecta saldra esto otro
+  }elseif (isset($modificar) && $modificar==false){
   ?>
     <h1>Contraseñas no coinciden</h1>
     <?php
+  // Este es el que sale por defecto cada vez que entras
   }else{
     ?>
     <h1 >Modificar Usuario</h1>
@@ -29,12 +32,15 @@
     ?>
     <p class="logo"></p>
     <form action="<?=url.'?controller=usuario&action=modificarsesion'?>" method="post">
-      
+      <!-- Campos de formulario para editar el usuario -->
       <label for="nombre">Nombre:</label>
       <input class="inputlogin" type="text" id="nombre" name="nombre" value="<?=$_SESSION['nombre']?>" required>      
 
       <label class="separacionsecundaria" for="correo">Correo electrónico:</label>
       <input class="inputlogin" type="email" id="correo" name="correo" value="<?=$_SESSION['correo']?>" required>
+      <!-- Campo invisible para obtener el correo antiguo -->
+      <input type="hidden" id="correoantiguo" name="correoantiguo" value="<?=$_SESSION['correo']?>">
+
 
       <label class="separacionsecundaria" for="direccion">Dirección:</label>
       <input class="inputlogin" type="text" id="direccion" name="direccion" value="<?=$_SESSION['direccion']?>" required>
@@ -47,6 +53,8 @@
       
       <label class="separacionsecundaria" for="confirmar_contrasena">Confirmar Contraseña:</label>
       <input class="inputlogin" type="password" id="confirmar_contrasena" name="confirmar_contrasena" required>
+
+      <!-- Botones para volver atras o modificar los datos -->
       <div class="row justify-content-center separacionsecundaria">
         <a class="botonproducto" href="<?=url.'?controller=usuario&action=login'?>">Volver</a>
         <button class="botonproducto ms-5" type="submit">Modificar datos</button>

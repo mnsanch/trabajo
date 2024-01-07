@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Restaurante Cosmocaixa Inicio</title>
-    <meta charset="UTF-8" lang="es" author="Marc Nicolás">
-    <meta name="title" content="Restaurante Cosmocaixa">
-    <meta name="description" content="Descripción de la WEB">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="css/estilos.css" rel="stylesheet">
-</head>
 
 <footer>
     <section class="container-fluid row pt-3 text-center separacionfooter">
+        <!-- Redes sociales -->
         <div>
-            <img class="imagenredes img-fluid" src="Imagenes/Iconos/facebook.png" alt="">
-            <img class="imagenredes img-fluid" src="Imagenes/Iconos/instagram.png" alt="">
-            <img class="imagenredes img-fluid" src="Imagenes/Iconos/twitter.png" alt="">
+            <img class="imagenredes img-fluid" src="Imagenes/Iconos/facebook.svg" alt="Enlace a Facebook">
+            <img class="imagenredes img-fluid" src="Imagenes/Iconos/instagram.svg" alt="Enlace a Instagram">
+            <img class="imagenredes img-fluid" src="Imagenes/Iconos/twitter.svg" alt="Enlace a Twitter">
         </div>
+        <!-- Copyrigth -->
         <div>
             <p class="LatoWeb footer">Copyrigth 2023 | Marc Nicolás </p>
         </div>

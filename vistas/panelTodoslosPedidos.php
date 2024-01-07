@@ -32,8 +32,24 @@
                             $id=$pedido->getIDPedido();
                         }
                         ?>
-                        <!-- Se muestra el precio del pedido -->
-                        <h4 class="negrita productonombre mayuscula separacionsecundaria">El precio de este pedido fue de <?=$pedido->getPrecioPedido()?>€</h4>
+                        <div class="row">
+                        <!-- Se muestra el comprador y precio del pedido -->
+                        <h4 class="col-12 col-sm-8 negrita productonombre mayuscula separacionsecundaria">El precio de este pedido fue echo por <?=$pedido->getNombreUsuario()?> con un valor de <?=$pedido->getPrecioPedido()?>€</h4>
+                        <div class="col-12 col-sm-4 py-2 row">
+                        <!-- Boton de modificar donde se le pasa todo lo necesario del pedido seleccionado -->
+                        <form class="row m-0 col-6 justify-content-center" action="<?=url.'?controller=pedido&action=editarpedido'?>" method="post">
+                            <button type="submit" name="modificar" value="<?=$pedido->getIDPedido() ?>" class="botonproducto">Modificar</button>
+                        </form>
+                        <!-- Boton de eliminar pedido-->
+                        <form class="row m-0 col-6 justify-content-center separacionsecundaria" action="<?=url.'?controller=pedido&action=eliminarpedido'?>" method="post">
+                            <button type="submit" name="eliminar" value="<?=$pedido->getIDPedido()?>" class="botonproducto">Eliminar</button>
+                        </form>
+                    </div>
+                    </div>
+
+
+
+                        
                         <?php
                     }
             ?>
@@ -50,10 +66,11 @@
                 }
             ?>
         </div>
-        <!-- Botón para volver atras -->
-        <div class="row justify-content-center separacionsecundaria">
-        <a class="botonproducto" href="<?=url.'?controller=usuario&action=login'?>">Volver</a>
-      </div>
+        <!-- Botones de volver atras y añadir pedido -->
+        <form class="row justify-content-center separacionsecundaria" action="<?=url.'?controller=pedido&action=añadirpedido'?>" method="post">
+            <a class="botonproducto" href="<?=url.'?controller=usuario&action=login'?>">Volver</a>
+            <button type="submit" name="añadir" class="botonproducto ms-5">Añadir Pedidos</button>
+        </form>
     </section>
 
 </body>

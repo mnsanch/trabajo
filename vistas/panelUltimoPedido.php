@@ -15,12 +15,15 @@
     
     <section class="container-xxl CircularSTD">
         <?php
+        // Se mira que la cookie este creada
         if (isset ($_COOKIE[$_SESSION['idusuario']])) {
             ?>
+            <!-- Se pone el precio del pedido sacandola de una de las dos cookies -->
             <h3>El ultimo pedido te costo <?=$_COOKIE[$_SESSION['idusuario'].'precio']?>€</h3>
             <div class="row">
                 <?php
                 $id=0;
+                // Se hace un bucle para cojer todos los productos del pedido sacando el id del pedido de la cookie
                 foreach ( (PedidosUsuarioDAO::cogerpedido($_COOKIE[$_SESSION['idusuario']])) as $producto) {
                     ?>
                     <div class="col-12 col-md-6 col-lg-4 producto">
@@ -33,12 +36,22 @@
                 <?php
                 };
                 ?>
-    
+            </div>
+                <!-- Botón para volver atras -->
+            <div class="row justify-content-center separacionsecundaria">
+                <a class="botonproducto" href="<?=url.'?controller=usuario&action=login'?>">Volver</a>
             </div>
             <?php
         }else{
             ?>
-            <h2>Nada</h2>
+            <!-- Mensaje que sale cuando no hay cookie -->
+            <div class="contenedorlogin separacionprincipal col-10 col-sm-5">
+                <h1>Hece mucho que no compras en nuestra pagina</h1>
+                <!-- Botón para volver atras -->
+                <div class="row justify-content-center separacionsecundaria">
+                <a class="botonproducto" href="<?=url.'?controller=usuario&action=login'?>">Volver</a>
+                </div>
+            </div>
         <?php
         }
         ?>

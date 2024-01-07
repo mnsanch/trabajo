@@ -1,14 +1,16 @@
 <?php
-    class Usuario {
-        protected $ID_Usuario; 
+class Usuario
+{
+        protected $ID_Usuario;
         protected $Nombre_Usuario;
         protected $Correo;
         protected $Direccion;
         protected $Telefono;
         protected $contraseña;
-        protected $Nombre_Categoria_Usuario ;
+        protected $Nombre_Categoria_Usuario;
 
-        public function __construct (){
+        public function __construct()
+        {
         }
 
 
@@ -140,5 +142,5 @@
 
                 return $this;
         }
-    }
+}
 ?>

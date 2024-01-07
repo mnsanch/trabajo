@@ -1,3 +1,4 @@
+/* Personalizar fuentes */
 @font-face {
     font-family: 'CircularSTD';
     src: url('../Tipografia/Circular/circular-std-medium-500.ttf') format('truetype');
@@ -13,6 +14,7 @@
     src: url('../Tipografia/Nunito Sans/static/NunitoSans_10pt-Regular.ttf') format('truetype');
 }
 
+/* Clases de fuente */
 .CircularSTD {
     font-family: 'CircularSTD', sans-serif;
 }
@@ -25,6 +27,7 @@
     font-family: 'Nunito_Sans', sans-serif;
 }
 
+/* Clases de esilos */
 .negrita {
     font-weight: bold;
 }
@@ -38,6 +41,11 @@
     text-transform: uppercase;
 }
 
+.invisible {
+    color: transparent;
+}
+
+/* Clases de tamaño */
 p{
     font-size: 20px;
 }
@@ -72,15 +80,6 @@ h3{
     font-size: 20px;
 }
 
-.invisible {
-    color: transparent;
-}
-
-.separacionborrar {
-    padding-left: 70px;
-    overflow: visible;
-}
-
 .productonombre{
     font-size: 21px;
 }
@@ -89,6 +88,29 @@ h3{
     font-size: 13px;
 }
 
+/* Clases de separación */
+.separacionborrar {
+    padding-left: 70px;
+    overflow: visible;
+}
+
+.separacionprincipal{
+    margin-top: 40px;
+}
+
+.separacionsecundaria{
+    margin-top: 20px;
+}
+
+.separacionfooter{
+    margin-top: 140px;
+}
+
+.separacioncarrito{
+    margin-top: 15px;
+}
+
+/* Classes de imagenes */
 .logo{
     background-image: url('../Imagenes/LogoCaixa.svg');
     background-repeat: no-repeat;
@@ -124,6 +146,7 @@ h3{
     height: 20px;
 }
 
+/* Clases colores */
 .editareliminar{
     color: #E61C23;
 }
@@ -142,10 +165,7 @@ h3{
     width: 30px;
 }
 
-.hola {
-    border: 1px solid #15064d;
-}
-
+/* Classes botones */
 .botonproducto {
     border: 1px solid #15064d;
     color: #15064d;
@@ -216,7 +236,6 @@ h3{
     font-size: 13px;
     padding: 0px;
     cursor: pointer;
-
 }
 
 .botonproductovolver:hover {
@@ -229,12 +248,21 @@ h3{
     border: 0;
 }
 
-.producto{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+.btn-outline-success {
+    color: #15064d;
+    background-color: white;
+    border: 1px solid #15064d;
+    cursor: pointer;
 }
 
+.btn-outline-success:hover {
+    background-color: #15064d;
+    color: white;
+}
+
+
+
+/* Classes formularios */
 .inputlogin {
     width: 100%;
     padding: 8px;
@@ -250,23 +278,6 @@ h3{
     margin: auto;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    width: 700px; 
-}
-
-.separacionprincipal{
-    margin-top: 40px;
-}
-
-.separacionsecundaria{
-    margin-top: 20px;
-}
-
-.separacionfooter{
-    margin-top: 140px;
-}
-
-.separacioncarrito{
-    margin-top: 15px;
 }
 
 footer{
@@ -277,9 +288,10 @@ footer{
 
 .navbar-nav .nav-link:hover {
     font-weight: bold;
-
 }
 
-.form-control {
-    text-decoration: none;
-}
+/* .producto{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+} */

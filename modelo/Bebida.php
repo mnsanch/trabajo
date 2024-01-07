@@ -9,10 +9,6 @@ class Bebida extends Producto
 
     }
 
-
-
-
-
     /**
      * Get the value of Alcohol
      */

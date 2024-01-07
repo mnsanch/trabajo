@@ -1,10 +1,12 @@
 <?php
-    class Pedido {
+class Pedido
+{
         protected $producto;
         protected $cantidad = 1;
 
-        public function __construct ($producto){
-                $this->producto=$producto;
+        public function __construct($producto)
+        {
+                $this->producto = $producto;
         }
 
 
@@ -43,5 +45,5 @@
 
                 return $this;
         }
-    }
+}
 ?>

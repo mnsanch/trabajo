@@ -13,21 +13,26 @@
 
 <body>
     <main>
+        <!-- Banner promocional -->
         <section class="container-xl text-center separacionprincipal">
-            <img src="Imagenes/banner.png" class="img-fluid imagenbanner" alt="">
+            <img src="Imagenes/banner.png" class="img-fluid imagenbanner" alt="Banner promocional">
         </section>
+        <!-- Sección de presentación -->
         <section class="container CircularSTD separacionprincipal">
             <h3 class="negrita">BIENVENIDO AL RESTAURANTE COSMOCAIXA</h3>
             <p class="separacionsecundaria"> Descubre una experiencia culinaria única en un entorno inspirado en la
                 ciencia y la naturaleza.
                 Nosencontramos en la calle Isaac Newton, 26, Barcelona. Allí te esperamos.</p>
         </section>
+        <!-- Imagen del mapa donde está el cosmocaixa -->
         <section class="container-xl text-center separacionsecundaria">
-            <img src="Imagenes/mapa.jpg" class="img-fluid" alt="">
+            <img src="Imagenes/mapa.jpg" class="img-fluid" alt="Mapa de ubicación">
         </section>
+        <!-- Sección accesibilidad -->
         <h3 class="container CircularSTD negrita separacionprincipal">SERVICIOS Y ACCESIBILIDAD</h3>
         <section class="text-start container-lg separacionsecundaria">
             <div class="row LatoWeb">
+                <!-- Primera columna -->
                 <div class="col-12 col-lg-4">
                     <p class="negrita CircularSTD subtitulo">
                         ACCESIBLE PARA USUARIOS CON SILLA DE RUEDAS Y PERSONAS CON MOVILIDAD REDUCIDA
@@ -37,29 +42,35 @@
                     <p class="texto">Espacios reservados para personas con movilidad reducida</p>
                     <p class="texto">Baños adaptados</p>
                 </div>
+                <!-- Segunda columna -->
                 <div class="col-12 col-lg-4">
                     <p class="negrita CircularSTD subtitulo">ACCESIBLE PARA PERSONAS CIEGAS O CON DIFICULTADES VISUALES</p>
                     <p class="texto"> <span class="negrita">Encaminamiento podotáctil:</span> franjas guía de encaminamiento podotáctil desde la entrada hasta los baños y la recepción</p>
                 </div>
+                <!-- tercera columna -->
                 <div class="col-12 col-lg-4">
-                    <p class="CircularSTD subtitulo">ACCESIBLE PARA PERSONAS SORDAS O CON DIFICULTADES AUDITIVAS</p>
+                    <p class="CircularSTD negrita subtitulo">ACCESIBLE PARA PERSONAS SORDAS O CON DIFICULTADES AUDITIVAS</p>
                     <p class="texto"><span class="negrita">Carteles de señalización</span>de la salida y los baños</p>
                     <p class="texto"><span class="negrita">Pizarras</span> a disposición de los clientes para poder comunicarse con los camareros</p>
                     <p class="texto">Accesible para personas con discapacidad mental, intelectual o psíquica</p>
                 </div>
             </div>
         </section>
+        <!-- Sección de los productos destacados -->
         <h3 class="container CircularSTD negrita separacionprincipal">PLATOS DESTACADOS</h3>
         <section class="container-xxl CircularSTD">
             <div class="row">
+                <!-- Producto 1 -->
                 <div class="col-12 col-md-6 col-lg-4 producto">
-                    <a href="productos.html" class="nodecoracion producto">
+                    <!-- Información del producto -->
+                    <div href="productos.html" class="nodecoracion">
                         <div class="imagencontenedor"
                             style="background-image: url('Imagenes/Bocadillos/albondigas.jpg');"></div>
                         <p class="productocategoria negrita">BOCADILLO GOURMET</p>
                         <h4 class="negrita productonombre">ALBÓNDIGAS</h4>
                         <p class="productodescripcion">BOCADILLO DE ALBÓNDIGA, QUESO RALLADO, PEREJIL, SALSA DE TOMATE.</p>
-                    </a>
+                    </div>
+                    <!-- Boton añafir al carrito -->
                     <div class="row">
                         <form class="col-4" action="<?=url.'?controller=producto&action=comprar'?>" method="post"> 
                             <input type="hidden" name="id"  value="12">
@@ -68,14 +79,17 @@
                         <p class="col-1 pt-1 ps-0">6€</p>
                     </div>                    
                 </div>
+                <!-- Producto 2 -->
                 <div class="col-12 col-md-6 col-lg-4 producto">
-                    <a href="productos.html" class="nodecoracion">
+                    <div href="productos.html" class="nodecoracion">
+                        <!-- Información del producto -->
                         <div class="imagencontenedor" style="background-image: url('Imagenes/Bocadillos/falafel.jpg');">
                         </div>
                         <p class="productocategoria negrita">BOCADILLO VEGANO</p>
                         <h4 class="negrita productonombre">FALAFEL</h4>
                         <p class="productodescripcion">BOCADILLO DE BOLSA DE FALAFEL, LECHUGA, TOMATE, CEBOLLA, SALSA DE TAHINI.</p>
-                    </a>
+                    </div>
+                    <!-- Boton añafir al carrito -->
                     <div class="row">
                         <form class="col-4" action="<?=url.'?controller=producto&action=comprar'?>" method="post"> 
                             <input type="hidden" name="id"  value="9">
@@ -84,15 +98,18 @@
                         <p class="col-1 pt-1 ps-0">6€</p>
                     </div>
                 </div>
+                <!-- Producto 3 -->
                 <div class="col-12 col-md-6 col-lg-4 producto">
-                    <a href="productos.html" class="nodecoracion">
+                    <!-- Información del producto -->
+                    <div href="productos.html" class="nodecoracion">
                         <div class="imagencontenedor"
                             style="background-image: url('Imagenes/Bocadillos/calamares.jpg');">
                         </div>
                         <p class="productocategoria negrita">BOCADILLO CALIENTE</p>
                         <h4 class="negrita productonombre negritas">CALAMARES</h4>
-                        <p class="productodescripcion">BOCADILLO DE CALAMARES.</p>
-                    </a>
+                        <p class="productodescripcion">BOCADILLO DE CALAMARES.
+                    </div>
+                    <!-- Boton añafir al carrito</p> -->
                     <div class="row">
                         <form class="col-4" action="<?=url.'?controller=producto&action=comprar'?>" method="post"> 
                             <input type="hidden" name="id"  value="8">
@@ -103,15 +120,18 @@
                 </div>
             </div>
         </section>
+        <!-- Sección de preguntas frecuentes -->
         <h3 class="container CircularSTD negrita separacionprincipal">PREGUNTAS FREQUENTES</h3>
         <section class="text-start container-lg separacionsecundaria">
             <div class="row LatoWeb">
+                <!-- Pregunta 1 -->
                 <div class="col-12 col-lg-4">
                     <p class="negrita CircularSTD subtitulo">
                         ¿TIENEN OPCIONES PARA VEGANOS?
                     </p>
                     <p class="texto">Si, contamos con una amplia variedad de opciones, preparadas con ingredientes frescos y sabrosos para garantizar una experiencia culinaria deliciosa y satisfactoria.</p>
                 </div>
+                <!-- Pregunta 2 -->
                 <div class="col-12 col-lg-4">
                     <p class="negrita CircularSTD subtitulo">
                         ¿OFRECEN SERVICIOS PARA LLEVAR O ENTREGA A DOMICILIO?
@@ -119,6 +139,7 @@
                     <p class="texto">Sí, en nuestro restaurante ofrecemos tanto servicio para llevar como entrega a domicilio para que pueda disfrutar de nuestros deliciosos platos.</p>
                     <p class="texto">Lo único que tienes que hacer es especificar-lo a la hora de comprar.</p>
                 </div>
+                <!-- Pregunta 3 -->
                 <div class="col-12 col-lg-4">
                     <p class="negrita CircularSTD subtitulo">
                         ¿PUEDO HACER MODIFICACIONES EN LOS PLATOS DEL MENÚ?
