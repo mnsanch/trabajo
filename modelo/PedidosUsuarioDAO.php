@@ -207,7 +207,7 @@ class PedidosUsuarioDAO
         $conexion->close();
 
         // Se devuelve cierto
-        return true;
+        return $precio;
     }
 
     public static function cantidad($idproducto, $idpedido, $cantidad)

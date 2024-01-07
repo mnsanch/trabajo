@@ -13,13 +13,16 @@
 
 <body>
     
+
     <section class="container-xxl CircularSTD">
         <?php
         // Se mira que la cookie este creada
         if (isset ($_COOKIE[$_SESSION['idusuario']])) {
+            $precio=PedidosUsuarioDAO::revisarprecio($_COOKIE[$_SESSION['idusuario']]);
+
             ?>
             <!-- Se pone el precio del pedido sacandola de una de las dos cookies -->
-            <h3>El ultimo pedido te costo <?=$_COOKIE[$_SESSION['idusuario'].'precio']?>€</h3>
+            <h3>El ultimo pedido te costo <?=$precio?>€</h3>
             <div class="row">
                 <?php
                 $id=0;

@@ -34,7 +34,6 @@ class pedidoController
 
     public function ultimopedido()
     {
-        // Verifica si la cookie llamada 'ultimopedido' está establecida
         //cabecera
         include_once 'vistas/header.php';
 
