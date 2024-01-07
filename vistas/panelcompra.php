@@ -93,15 +93,13 @@
                 </div>
                 <div class="col-2 col-sm-4"></div>
                 <div class="col-2 col-sm-3">
-                    <p class="texto justify-content-end row"><?=$pedido->getProducto()->getPrecioProducto()*$pedido->getCantidad()?>€</p>   
+                    <p class="texto justify-content-end row"><?=number_format(($pedido->getProducto()->getPrecioProducto()*$pedido->getCantidad()),2)?>€</p>   
                 </div>
                 <div class="col-1 col-sm-2">
                 <form action="<?=url.'?controller=producto&action=borrar'?>" class="col-6" method="post">
                     <button class="botoncompra" type="submit" name="borrar" value="<?=$posicion?>"><img class="imageneditareliminar ms-4 mb-4" src="Imagenes/Iconos/basura.svg" alt="Eliminar producto"></button>
                 </form>
-                <form action="<?=url.'?controller=prducto&action=editar'?>" class="col-6" method="post">
-                    <button class="botoncompra" type="submit" name="borrar" value="<?=$posicion?>"><img class="imageneditareliminar ms-4 mb-3" src="Imagenes/Iconos/lapiz rojo.svg" alt="Editar producto"></button>
-                </form>
+
                 </div>
                 
             </div>
